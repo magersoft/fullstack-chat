@@ -28,6 +28,7 @@ export default {
           console.error(data)
         } else {
           this.text = ''
+          this.write = false
         }
       })
     },

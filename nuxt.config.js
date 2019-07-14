@@ -35,6 +35,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/globals',
     { src: '@/plugins/socket', ssr: false }
   ],
   /*

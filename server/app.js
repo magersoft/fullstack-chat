@@ -3,7 +3,7 @@ const server = require('http').createServer(app)
 const io = require('socket.io')(server)
 const users = require('./users')()
 
-const m = (name, text, id) => ({ name, text, id })
+const m = (name, text, id, date) => ({ name, text, id, date })
 
 io.on('connection', socket => {
 
@@ -36,9 +36,11 @@ io.on('connection', socket => {
       return cb('Message cannot empty')
     }
 
+    const datetime = new Date()
+
     const user = users.get(data.id)
     if (user) {
-      io.to(user.room).emit('newMessage', m(user.name, data.text, data.id))
+      io.to(user.room).emit('newMessage', m(user.name, data.text, data.id, datetime.toLocaleTimeString()))
     }
     cb()
   })

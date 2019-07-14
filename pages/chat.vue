@@ -5,8 +5,7 @@
         <Message
           v-for="message in messages"
           :key="message.text"
-          :name="message.name"
-          :text="message.text"
+          :message="message"
           :owner="message.id === user.id"
         />
       </ul>

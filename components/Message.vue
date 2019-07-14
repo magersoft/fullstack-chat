@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div v-if="name === 'admin'" class="system">
+    <div v-if="message.name === 'admin'" class="system">
       <p class="text-xs-center">
-        {{ text }}
+        {{ message.text }}
       </p>
       <hr>
     </div>
     <div v-else class="wrap">
       <div class="message" :class="{ owner }">
-        <small><strong>{{ name }}</strong></small>
-        <p>{{ text }}</p>
+        <small><strong>{{ message.name }}</strong></small>
+        <div><p>{{ message.text }}</p></div>
+        <p class="text-xs-right"><small>{{ message.date }}</small></p>
       </div>
     </div>
   </div>
@@ -18,12 +19,8 @@
 <script>
 export default {
   props: {
-    name: {
-      type: String,
-      required: true
-    },
-    text: {
-      type: String,
+    message: {
+      type: Object,
       required: true
     },
     owner: {
@@ -58,6 +55,11 @@ export default {
   margin-bottom: 1rem;
   p {
     margin-bottom: 0;
+  }
+  &-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 

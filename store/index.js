@@ -13,6 +13,7 @@ export const mutations = {
     state.user = {}
     state.messages = []
     state.users = []
+    state.typing = ''
   },
   SOCKET_newMessage(state, message) {
     state.messages.push(message)
