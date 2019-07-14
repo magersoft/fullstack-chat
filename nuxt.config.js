@@ -42,8 +42,7 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/vuetify',
-    '@nuxtjs/pwa',
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/pwa'
   ],
   /*
   ** vuetify module configuration
