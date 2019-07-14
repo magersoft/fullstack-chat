@@ -7,10 +7,8 @@ const m = (name, text, id) => ({ name, text, id })
 
 io.on('connection', socket => {
 
-  // TODO: Сделать секретные чаты и чаты которые будут храниться в firebase
   socket.on('userJoined', (data, cb) => {
     if (!data.name || !data.room) {
-      console.error('Data invalid')
       return cb('Data invalid')
     }
 
